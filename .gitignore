@@ -3,6 +3,11 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Non-source files
+test.ipynb
+*.xlsx
+*.session
+
 # C extensions
 *.so
 
