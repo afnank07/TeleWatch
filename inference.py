@@ -10,7 +10,8 @@ import joblib
 
 
 # --- Model cache and config ---
-MODEL_PATH = os.environ.get('SBERT_MODEL_PATH', 'all-MiniLM-L6-v2')  # Set to local path or model name
+MODEL_PATH = os.environ.get('SBERT_MODEL_PATH')  # Set to local path or model name
+# MODEL_PATH = "./models/sentence-bert/"  # Set to local path or model name
 _sbert_model = None
 _clf_cache = {}
 
