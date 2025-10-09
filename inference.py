@@ -7,10 +7,13 @@ from tqdm import tqdm
 import os
 from sentence_transformers import SentenceTransformer
 import joblib
+from load_dotenv import load_dotenv
+load_dotenv()
 
 
 # --- Model cache and config ---
 MODEL_PATH = os.environ.get('SBERT_MODEL_PATH')  # Set to local path or model name
+print(f"Using SBERT model path: {MODEL_PATH}")
 # MODEL_PATH = "./models/sentence-bert/"  # Set to local path or model name
 _sbert_model = None
 _clf_cache = {}
@@ -60,7 +63,7 @@ def evaluate_on_excel(test_file='test.xlsx', model_name='logistic_regression', m
 	df['predicted_class'] = pred_classes
 	# Save to new Excel file
 	out_file = f"predictions_{model_name}.xlsx"
-	df.to_excel(out_file, index=False)
+	# df.to_excel(out_file, index=False)
 	print(f"Saved predictions to {out_file}")
 	print(f"Results for {model_name} on {test_file}:")
 	print(f"Precision: {precision_score(true_labels, pred_labels):.3f}")
